@@ -121,6 +121,12 @@ Deno.test("test CalculateProduct", async (t: Deno.TestContext): Promise<void> =>
         const product: number = CalculateProduct(pair);
         assertEquals(0, product)
     });
+
+    await t.step("test 2 sets of positive and negative values of the same magnitude", (): void => {
+        const pair: SquarePair = SliceSquarePair([-5, -5, 5, 5]);
+        const product: number = CalculateProduct(pair);
+        assertEquals(25, product)
+    });
 });
 
 Deno.test("test known cases", async (t: Deno.TestContext): Promise<void> => {
