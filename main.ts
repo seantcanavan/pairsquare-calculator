@@ -53,9 +53,9 @@ export function SliceSquarePair(numbers: Array<number>): SquarePair {
         }
     }
 
-    // return 0 to 2 of the largest negative numbers
-    // return 0 to 2 of the smallest positive numbers
-    // return a boolean for if we had one or more zeros.
+    // return 0 to 2 of the smallest negative numbers
+    // return 0 to 2 of the largest positive numbers
+    // return a boolean if we had one or more zeros.
     return new SquarePair(pos, neg, hasZero)
 }
 
@@ -76,7 +76,7 @@ export function CalculateProduct(pair: SquarePair): number {
         } else { // final edge case - array size is two and one is positive and one is negative
             return pair.pos[0] * pair.neg[0]; // only 1 pos and 1 negative value
         }
-    } else { // has 2 positives and 2 negatives
+    } else { // original array had 2 positive and 2 negative numbers
         const biggestPos: number = pair.pos[0] * pair.pos[1]
         const biggestNeg: number = pair.neg[0] * pair.neg[1]
 
