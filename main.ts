@@ -18,6 +18,8 @@ export class SquarePair {
 
 export function SliceSquarePair(numbers: Array<number>): SquarePair {
     let hasZero: boolean = false;
+
+    // using an array of values bounded with a max of length 2 helps handle the case of 0 or more values either positive or negative
     let pos: Array<number> = new Array<number>();
     let neg: Array<number> = new Array<number>();
 
@@ -37,7 +39,7 @@ export function SliceSquarePair(numbers: Array<number>): SquarePair {
             } else if (neg[0] < x) {
                 neg.push(current);
                 neg.sort(sortNumbers);
-                neg = neg.slice(1, 3); // safely handles 2 or fewer integers without worrying about undefined
+                neg = neg.slice(1, 3); // ensures we only keep the 2 smallest numbers
             }
         } else {
             if (pos.length < 2) {
@@ -46,7 +48,7 @@ export function SliceSquarePair(numbers: Array<number>): SquarePair {
             } else if (pos[1] > x) {
                 pos.push(current);
                 pos.sort(sortNumbers);
-                pos = pos.slice(0, 2); // safely handles 2 or fewer integers without worrying about undefined
+                pos = pos.slice(0, 2); // ensures we only keep the 2 largest numbers
             }
         }
     }
