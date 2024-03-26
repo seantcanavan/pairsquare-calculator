@@ -35,7 +35,7 @@ export function SliceSquarePair(numbers: Array<number>): SquarePair {
         } else if (current < 0) {
             if (neg.length < 2) {
                 neg.push(current);
-                neg.sort(sortNumbers);
+                neg.sort(sortNumbers); // sorting 0, 1, or 2 values is O(1) runtime
             } else if (neg[0] < x) {
                 neg.push(current);
                 neg.sort(sortNumbers);
@@ -47,7 +47,7 @@ export function SliceSquarePair(numbers: Array<number>): SquarePair {
                 pos.sort(sortNumbers);
             } else if (pos[1] > x) {
                 pos.push(current);
-                pos.sort(sortNumbers);
+                pos.sort(sortNumbers); // sorting 0, 1, or 2 values is O(1) runtime
                 pos = pos.slice(0, 2); // ensures we only keep the 2 largest numbers
             }
         }
